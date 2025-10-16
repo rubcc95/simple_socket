@@ -7,10 +7,10 @@ public class Client {
     public static final String host = "localhost";
 
     public static void main(String[] args) throws Exception {
-        try(Socket socket = new Socket(host, port);
+        try(Socket socket = new Socket(host, port); //Lockea hasta conectarse o fallar
             var obj = new ObjectOutputStream(socket.getOutputStream());
         ) {
-            obj.writeObject(new Message("ruben", "Hola que tal"));            
+            obj.writeObject(new Message("ruben", "Hola mundo"));  
         }
     }
 }

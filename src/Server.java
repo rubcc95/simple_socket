@@ -9,7 +9,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             var socket = serverSocket.accept(); // lockea hasta que alguien se conecte
             var obj = new ObjectInputStream(socket.getInputStream());
-            var a = (Message) obj.readObject();
+            var a = (Message) obj.readObject(); //lockea el hilo hasta leer un objeto
             System.out.println("User " + a.user + " sent: " + a.text);
 
         }
